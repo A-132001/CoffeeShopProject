@@ -1,0 +1,56 @@
+#header {
+    background-color: #5A020Cce;
+    color: #ffff;
+}
+
+#head{
+    color: bisque !important;
+}
+.module h2, 
+.module caption,
+.inline-group h2,
+div.breadcrumbs
+{
+    background-color: #5A020Cce;
+    color: #ffff;
+}
+
+.button.default,
+input[type=submit].default,
+.button.default,
+input[type=submit].default,
+.button.default,
+input[type=submit].default,
+.button, 
+input[type=submit], 
+input[type=button], 
+.button, 
+input[type=submit], 
+input[type=button], 
+.button, 
+input[type=submit], 
+input[type=button]
+{
+    background-color: #5A020Cce;
+    color: #ffff;
+}
+
+
+.button.default:active,
+input[type=submit].default:active,
+.button.default:focus,
+input[type=submit].default:focus,
+.button.default:hover,
+input[type=submit].default:hover,
+.button:active, 
+input[type=submit]:active, 
+input[type=button]:active, 
+.button:focus, 
+input[type=submit]:focus, 
+input[type=button]:focus, 
+.button:hover, 
+input[type=submit]:hover, 
+input[type=button]:hover
+{
+    background-color: #772831ce;
+}

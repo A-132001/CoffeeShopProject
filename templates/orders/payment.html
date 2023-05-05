@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}payment{% endblock %}
+{% block content %}
+<div class="my-form container p-5 my-5 rounded border border-warning">
+    <h2 class="text-center">Checkout</h2>
+    <hr>
+    {% include 'partials/alerts.html' %}
+
+    {% comment %} to check if user logged or not {% endcomment %}
+    {% if not request.user.is_authenticated or request.user.is_anonymous %}
+        <h4 class="alert alert-danger">
+            You must be 
+            <a href="{% url 'signin' %}" class="text-dark">Log in</a>
+        </h4>
+    {% elif not order%}
+        <h4 class="alert alert-warning">No orders here
+        <a href="{% url 'products'%}" class="text-dark" style="font-weight: bold;">Our products</a>
+        </h4>
+
+    {% else %}
+        {% if is_added == True %}
+            <form method = 'post' style="display:none;">
+        {% else %}
+            <form method = 'post'>
+        {% endif %}
+
+            {% csrf_token %}
+            
+            Order Number: <span class="my_num">{{order.id}}</span>
+            <hr>
+            Product Count: <span class="my_num">{{order_details.count}}</span>
+            <hr>
+            Total Price: <span class="my_num">{{total}}$</span>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputAddress"> Address</label>
+                    <input type="text" name='address'  class="form-control" value = "{{address}}" id="inputAddress"  required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPhone">Phone</label>
+                    <input type="text" name = 'phone' value="{{phone}}" class="form-control" id="inputPhone" placeholder='+201143XXXXXX' required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCardNumber">Card Number</label>
+                    <input type="text" name = 'card_number' value = "{{card_number}}" class="form-control" id="inputCardNumber" placeholder='3333 3333 3333 3333' required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputExpire">Expire</label>
+                    <input type="text" name='expire' value = "{{expire}}" class="form-control" id="inputExpire"placeholder='mm/yy' required>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputScurityCode">Security code</label>
+                    <input type="text" name='security_code' value = "{{security_code}}" class="form-control" id="inputScurityCode" placeholder="333" required>
+                </div>
+            </div>
+
+            <button type="submit" name='btnpayment' class="btn btn-success">Payment</button>
+        </form>
+    {% endif %}
+    
+
+</div>
+{% endblock %}

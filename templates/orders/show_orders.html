@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} | Product{% endblock %}
+
+{% block content %}
+<div class="my-form container p-5 my-5 rounded border border-warning">
+    <h2 class="text-center">My Orders</h2>
+    
+    {% if not request.user.is_authenticated or request.user.is_anonymous %}
+        <h4 class="alert alert-danger">
+            You must be 
+            <a href="{% url 'signin' %}" class="text-dark">Log in</a>
+        </h4>
+    {% elif all_orders%}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Order Number</th>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Item Count</th>
+                <th scope="col">Total</th>
+                <th scope="col">payed</th>
+                </tr>
+            </thead>
+            {% for order  in all_orders %}
+                <tbody>
+                <tr>
+                    <td>{{order.id}}</td>
+                    <td>{{order.order_date}}</td>
+                    <td>{{order.count}}</td>
+                    <td>{{order.total}}$</td>
+                    <td>  
+                        {% if order.is_finished == True %}
+                            Yes
+                        {% else %}
+                            No
+                        {% endif %}
+                    </td>
+                </tr>
+                </tbody>
+
+            {% endfor %}
+        </table>
+    {% else %}
+        <h4 class="alert alert-danger">
+            No orders here
+            <a href="{% url 'products' %}" class="text-dark">All Products</a>
+        </h4>
+    {% endif %}
+    </div>
+
+{% endblock %}
