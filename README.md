@@ -60,20 +60,20 @@ DATABASES = {
 }
 ```
 
-###6. Apply Migrations
+### 6. Apply Migrations
 Apply the database migrations to set up your PostgreSQL database:
 ```bash
 python manage.py migrate
 ```
 
-###7. Create a Superuser (Optional)
+### 7. Create a Superuser (Optional)
 Create a superuser account to access the Django admin panel:
 ```bash
 python manage.py createsuperuser
 ```
 Follow the prompts to enter the superuser's username, email, and password.
 
-###8. Run the Development Server
+### 8. Run the Development Server
 Start the development server:
 ```bash
 python manage.py runserver
