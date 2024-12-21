@@ -1,0 +1,47 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+env/
+
+# Django-related files
+db.sqlite3
+*.log
+*.pot
+*.pyc
+
+# Media and static files (optional, if they are generated dynamically)
+media/
+staticfiles/
+
+# Environment variables
+.env
+.venv
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node modules (if using npm or yarn for front-end)
+node_modules/
+
+# MacOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+
+# Testing coverage reports
+htmlcov/
+*.cover
+.coverage
+*.lcov
+
+# Deployment-related
+*.pem
+*.key
