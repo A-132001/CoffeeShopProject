@@ -81,10 +81,10 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mycoffee',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
+        'NAME': 'Your_Database_Name',
+        'USER': 'User_Name',
+        'PASSWORD': 'Your_Password',
+        'HOST': 'Your_local_Host',
         'PORT': '5432',
         
     }
