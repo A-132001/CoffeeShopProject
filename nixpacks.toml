@@ -1,12 +1,11 @@
 [phases.setup]
 nixPkgs = [
-  "python312",  # or python311 if your project uses it
+  "python312",
   "zlib",
   "libjpeg",
   "libpng",
   "freetype",
   "openjpeg",
   "lcms2",
-  "libwebp",
-  "tiff"
+  "libwebp"
 ]
