@@ -25,7 +25,7 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['coffeeshopproject.up.railway.app']
+ALLOWED_HOSTS = ['coffeeshopproject-production.up.railway.app']
 
 
 # Application definition
