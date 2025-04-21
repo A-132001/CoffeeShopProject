@@ -7,5 +7,6 @@ nixPkgs = [
   "freetype",
   "openjpeg",
   "lcms2",
-  "libwebp"
+  "libwebp",
+  "postgresql",
 ]
