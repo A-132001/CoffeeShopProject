@@ -123,13 +123,37 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-STATIC_URL = 'static/'
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# STATIC_URL = 'static/'
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR,'project/static')
+# ]
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# MEDIA_URL = 'media/'
+# settings.py
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Changed from 'static'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'project/static')
+    os.path.join(BASE_DIR, 'project/static')
 ]
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = 'media/'
+
+# Media files (user uploaded content)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Important additions for production
+if not DEBUG:
+    # Ensure secure connections for media files
+    MEDIA_URL = f'https://{os.environ.get("RAILWAY_STATIC_URL", "yourdomain.com")}/media/'
+    
+    # For Railway's ephemeral storage, consider using S3 or similar
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
