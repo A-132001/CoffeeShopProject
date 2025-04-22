@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['coffeeshopproject-production.up.railway.app']
 
 
@@ -140,3 +140,15 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+
+# CSRF Trusted Origins
+CSRF_TRUSTED_ORIGINS = [
+    'https://coffeeshopproject-production.up.railway.app',
+    'https://*.railway.app'
+]
+
+# If using cookies
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'Lax'  # or 'None' if using cross-site requests
